@@ -553,8 +553,6 @@ void Enemy_Show()
     {
         if(!enemy[i].ACTIVE) continue;
         glPushMatrix();
-
-
         glRotatef(theta, 0.0f, 0.0f, 0.1f);
         glTranslatef(enemy[i].x, enemy[i].y, enemy[i].z);
         glScalef(basicSize.width,basicSize.depth,basicSize.height);
@@ -974,7 +972,6 @@ void CalculateFrameRate()
 
 void player_Move()
 {
-    //if(GetForegroundWindow()!=hwnd) return;
     if(GetKeyState(VK_UP)<0) camera.Xrot = ++camera.Xrot > 180 ? 180 : camera.Xrot;
     if(GetKeyState(VK_DOWN)<0) camera.Xrot = --camera.Xrot < 0 ? 0 : camera.Xrot;
     if(GetKeyState(VK_LEFT)<0) camera.Zrot++;
