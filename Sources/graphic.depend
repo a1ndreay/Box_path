@@ -1,0 +1,58 @@
+# depslib dependency file v1.0
+1676566803 source:e:\cplus\discmr\Sources\main.c
+	<windows.h>
+	<gl/gl.h>
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<glut.h>
+	"../lib/stb_image.h"
+
+1676137737 e:\cplus\discmr\lib\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+	"stb_image.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1677598740 source:e:\cplus\discmr\sources\main.c
+	<windows.h>
+	<gl/gl.h>
+	<math.h>
+	<string.h>
+	<stdlib.h>
+	<glut.h>
+	"../lib/stb_image.h"
+	"../Headers/camera_engine.h"
+
+1677598829 e:\cplus\discmr\headers\camera_engine.h
+
+1677597380 source:e:\cplus\discmr\sources\camera_engine.c
+	<GL/gl.h>
+	"../Headers/camera_engine.h"
+
