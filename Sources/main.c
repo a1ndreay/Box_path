@@ -940,7 +940,6 @@ void Color_ind()
 {
     glEnableClientState(GL_VERTEX_ARRAY);
     glPushMatrix();
-//glLoadIdentity();
     glOrtho(0,WindowWidth, WindowHeight, 0, -1,1);
     glColor3ub(r_m,g_m,b_m);
     glPointSize(100);
