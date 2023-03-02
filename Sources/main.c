@@ -1151,8 +1151,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                     //printf("x = %f y = %f xrot = %f zrot = %f\n", camera.x, camera.y, camera.Xrot, camera.Zrot);
                 }
 
-                if(strcmp(btn[i].name, "quit") == 0)
-                    PostQuitMessage(0);
+                //if(strcmp(btn[i].name, "quit") == 0)
+                    //PostQuitMessage(0);
             }
         break;
 
