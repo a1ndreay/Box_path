@@ -502,7 +502,6 @@ void SizeHint()
     winy=height-winy;
     o.x = winx;
     o.y = winy;
-    //ClientToScreen(hwnd, &o); //включить если работаешь с setcursorpos
     int ret;
     char buffer[6];
     if(routeIND[iterFR][4]==1)
@@ -1140,7 +1139,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                         SHOW_FONT = FALSE;
                     else
                         SHOW_FONT = TRUE;
-                    printf("%1.1f %1.1f %1.1f %1.1f %1.1f %1.1f %1.1f\n", basicSize.width, basicSize.depth, basicSize.height, basicSize.lx, basicSize.ly, basicSize.px, basicSize.py);
+                    //printf("%1.1f %1.1f %1.1f %1.1f %1.1f %1.1f %1.1f\n", basicSize.width, basicSize.depth, basicSize.height, basicSize.lx, basicSize.ly, basicSize.px, basicSize.py);
                 }
 
                 if(strcmp(btn[i].name, "stop") == 0)
@@ -1149,7 +1148,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                         INDICATORLOAD = FALSE;
                     else
                      INDICATORLOAD = TRUE;
-                    printf("x = %f y = %f xrot = %f zrot = %f\n", camera.x, camera.y, camera.Xrot, camera.Zrot);
+                    //printf("x = %f y = %f xrot = %f zrot = %f\n", camera.x, camera.y, camera.Xrot, camera.Zrot);
                 }
 
                 if(strcmp(btn[i].name, "quit") == 0)
