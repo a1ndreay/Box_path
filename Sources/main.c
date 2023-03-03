@@ -794,7 +794,7 @@ void Moving(int x, int y)
     r_m = clr[0];
     g_m = clr[1];
     b_m = clr[2];
-    printf("%d %d\n", x, y);
+    //printf("%d %d\n", x, y);
     if((clr[0]==0)&&(clr[1]==0)&&(clr[2]>=248))
     {
         PointlnVERTEX = TRUE;
