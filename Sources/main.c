@@ -4,10 +4,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include <glut.h>
+#include <stdbool.h>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "../lib/stb_image.h"
 #include "../Headers/camera_engine.h"
+#include "../Headers/box_editor.h"
 
 int WindowWidth, WindowHeight;
 int timer = 0;
@@ -33,18 +35,20 @@ struct
 POINT scrSize;
 float scrKoef;
 
+/*
 struct
 {
     float width, depth, height, lx, ly, px,py;
 } basicSize = {1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0};
-float route[4][5][3] = {};
+*/
+//float route[4][5][3] = {};
 float routeIND[4][7] = {}; //contain a route number according a color code and route length
 int kubevertnum[8][1];
 float colorInd[] = {1,1};
 float kubeMap[] = {0,0,0, 0,1,0, 1,1,0, 1,0,0, 0,0,1, 0,1,1, 1,1,1, 1,0,1};
 float kube[] = {-1,-1,-1, -1,1,-1, 1,1,-1, 1,-1,-1, -1,-1,-1, 1,-1,-1, 1,-1,1, 1,1,1, 1,1,-1, 1,1,1, -1,1,1, -1,1,-1, -1,1,1, -1,-1,1, 1,-1,1, -1,-1,1};
 GLuint kubeInd[] = {0,1,2, 2,3,0, 4,5,6, 6,7,4, 3,2,5, 6,7,3, 0,1,5, 5,4,0, 1,2,6, 6,5,1, 0,3,7, 7,4,0};
-float kubevert[] = {-1,-1,-1, -1,1,-1, 1,1,-1, 1,-1,-1, 1,-1,1, 1,1,1, -1,1,1, -1,-1,1};
+//float kubevert[] = {-1,-1,-1, -1,1,-1, 1,1,-1, 1,-1,-1, 1,-1,1, 1,1,1, -1,1,1, -1,-1,1};
 BOOL ShowMask = FALSE;
 static float rectCoord[] = {0,0, 1,0, 1,1, 0,1};
 static float rectTex[] = {0,1, 1,1, 1,0, 0,0};
@@ -61,7 +65,7 @@ void SetCharSize(unsigned char *data, int width, int cnt,
         int x = (k%16)*pixPerChar;
         int y = (k/16)*pixPerChar;
         int i;
-        int ind;
+        //int ind;
         unsigned char alpha;
         for(i = x + pixPerChar - 1; i>x; i--)
         {
@@ -162,7 +166,7 @@ void TexShow(float ox, float oy, char *text, float *cWidthArray)
     glPopMatrix();
     glBindTexture(GL_TEXTURE_2D, 0);
 }
-
+/*
 void init_route();
 void init_route()
 {
@@ -213,7 +217,7 @@ void init_route()
     for(int i = 0; i<4; i++)
         route[i][4][2]=kubevert[11];
 }
-
+*/
 typedef struct
 {
     float r, g, b;
@@ -301,8 +305,9 @@ void Enemy_Init()
     }
 }
 float theta = 0.0f;
-BOOL PointlnVERTEX = FALSE;
-BOOL PointlnPoint = FALSE;
+
+extern bool PointlnVERTEX;
+extern bool PointlnPoint;
 
 int routeST[4][2][1];
 
@@ -396,7 +401,7 @@ void DrawRoundRect(float x, float y, float width, float height, float* color, fl
         ++i;
     }
 
-    static GLubyte clr[] = { 156, 207, 255, 128 };   // Light blue, 50% transparent.
+    //static GLubyte clr[] = { 156, 207, 255, 128 };   // Light blue, 50% transparent.
 
     if( color == 1 )
         glColor3ub(190,190,190);
@@ -455,7 +460,7 @@ void SizeHint()
     int Height = 35;
     GLubyte clr[3];
     int height = rct.bottom - rct.top;
-    int width = rct.right - rct.left;
+    //int width = rct.right - rct.left;
     glReadPixels(MousePos.x,MousePos.y, 1,1, GL_RGB, GL_UNSIGNED_BYTE, &clr);
     POINT o;
     GLdouble model_view[16];
@@ -780,7 +785,7 @@ typedef struct
 int r_m, g_m, b_m;
 int VertNum;
 int PointNum;
-int offset_x, offset_y;
+//int offset_x, offset_y;
 void Moving(int x, int y)
 {
     ShowMask = TRUE;
@@ -797,21 +802,22 @@ void Moving(int x, int y)
     //printf("%d %d\n", x, y);
     if((clr[0]==0)&&(clr[1]==0)&&(clr[2]>=248))
     {
-        PointlnVERTEX = TRUE;
+        PointlnVERTEX = true;
         VertNum = abs(clr[2]-255);
     }
     if((clr[0]==250)&&(clr[1]==153)&&(clr[2]==0))
     {
-        PointlnPoint = TRUE;
+        PointlnPoint = true;
         PointNum = 14;
     }
     if((clr[0]==255)&&(clr[1]==150)&&(clr[2]==0))
     {
-        PointlnPoint = TRUE;
+        PointlnPoint = true;
         PointNum = 2;
     }
 }
-int itercnt = 0;
+//int itercnt = 0;
+/*
 void resize_proc()
 {
     timer = 0;
@@ -934,6 +940,7 @@ void resize_proc()
     }
     itercnt+=1;
 }
+*/
 
 void Color_ind()
 {
@@ -1118,8 +1125,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         break;
 
     case WM_LBUTTONUP:
-        PointlnVERTEX = FALSE;
-        PointlnPoint = FALSE;
+        PointlnVERTEX = false;
+        PointlnPoint = false;
         IS_HOLD = FALSE;
         if(PointlnPoint)
             printf("%s\n", "up");
